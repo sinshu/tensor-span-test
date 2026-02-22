@@ -12,39 +12,39 @@ public static class Program
 
     public static void VecTest()
     {
-        Vec<double> a = [1, 2, 3];
+        Vec<double> x = [1, 2, 3];
 
-        Vec<double> b = [3, 2, 1];
+        Vec<double> y = [3, 2, 1];
 
-        var c = new Vec<double>(3);
+        var ans = new Vec<double>(3);
 
         // Use a TensorSpan method.
-        Tensor.Multiply(a.AsTensorSpan(), b.AsTensorSpan(), c.AsTensorSpan());
+        Tensor.Add(x.AsTensorSpan(), y.AsTensorSpan(), ans.AsTensorSpan());
 
-        Console.WriteLine(c);
+        Console.WriteLine(ans);
     }
 
     public static void MatTest()
     {
-        Mat<double> a =
+        Mat<double> x =
         [
             [1, 2, 3],
             [4, 5, 6],
             [7, 8, 9],
         ];
 
-        Mat<double> b =
+        Mat<double> y =
         [
             [9, 8, 7],
             [6, 5, 4],
             [3, 2, 1],
         ];
 
-        var c = new Mat<double>(3, 3);
+        var ans = new Mat<double>(3, 3);
 
-        // Use a TensorSpan method.
-        Tensor.Multiply(a.AsTensorSpan(), b.AsTensorSpan(), c.AsTensorSpan());
+        // You can use methods designed for TensorSpan<T>.
+        Tensor.Add(x.AsTensorSpan(), y.AsTensorSpan(), ans.AsTensorSpan());
 
-        Console.WriteLine(c);
+        Console.WriteLine(ans);
     }
 }
